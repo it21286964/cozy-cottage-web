@@ -1,0 +1,982 @@
+{
+  "cover-home-large": {
+    "webp": {
+      "large": "/optimized-images/cover-home-large.webp"
+    }
+  },
+  "cover-home-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/cover-home-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/cover-home-medium.webp"
+    }
+  },
+  "cover-home-small": {
+    "webp": {
+      "small": "/optimized-images/cover-home-small.webp"
+    }
+  },
+  "cover-home-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/cover-home-thumbnail.webp"
+    }
+  },
+  "cover-home-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/cover-home-xlarge.webp"
+    }
+  },
+  "cozy logo-large": {
+    "webp": {
+      "large": "/optimized-images/cozy logo-large.webp"
+    }
+  },
+  "cozy logo-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/cozy logo-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/cozy logo-medium.webp"
+    }
+  },
+  "cozy logo-small": {
+    "webp": {
+      "small": "/optimized-images/cozy logo-small.webp"
+    }
+  },
+  "cozy logo-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/cozy logo-thumbnail.webp"
+    }
+  },
+  "cozy logo-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/cozy logo-xlarge.webp"
+    }
+  },
+  "cozy-logo-processed-large": {
+    "webp": {
+      "large": "/optimized-images/cozy-logo-processed-large.webp"
+    }
+  },
+  "cozy-logo-processed-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/cozy-logo-processed-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/cozy-logo-processed-medium.webp"
+    }
+  },
+  "cozy-logo-processed-small": {
+    "webp": {
+      "small": "/optimized-images/cozy-logo-processed-small.webp"
+    }
+  },
+  "cozy-logo-processed-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/cozy-logo-processed-thumbnail.webp"
+    }
+  },
+  "cozy-logo-processed-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/cozy-logo-processed-xlarge.webp"
+    }
+  },
+  "deluxe dbl/IMG_4892-large": {
+    "webp": {
+      "large": "/optimized-images/deluxe dbl\\IMG_4892-large.webp"
+    }
+  },
+  "deluxe dbl/IMG_4892-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4892-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4892-medium.webp"
+    }
+  },
+  "deluxe dbl/IMG_4892-small": {
+    "webp": {
+      "small": "/optimized-images/deluxe dbl\\IMG_4892-small.webp"
+    }
+  },
+  "deluxe dbl/IMG_4892-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/deluxe dbl\\IMG_4892-thumbnail.webp"
+    }
+  },
+  "deluxe dbl/IMG_4892-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/deluxe dbl\\IMG_4892-xlarge.webp"
+    }
+  },
+  "deluxe dbl/IMG_4897-large": {
+    "webp": {
+      "large": "/optimized-images/deluxe dbl\\IMG_4897-large.webp"
+    }
+  },
+  "deluxe dbl/IMG_4897-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4897-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4897-medium.webp"
+    }
+  },
+  "deluxe dbl/IMG_4897-small": {
+    "webp": {
+      "small": "/optimized-images/deluxe dbl\\IMG_4897-small.webp"
+    }
+  },
+  "deluxe dbl/IMG_4897-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/deluxe dbl\\IMG_4897-thumbnail.webp"
+    }
+  },
+  "deluxe dbl/IMG_4897-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/deluxe dbl\\IMG_4897-xlarge.webp"
+    }
+  },
+  "deluxe dbl/IMG_4902-large": {
+    "webp": {
+      "large": "/optimized-images/deluxe dbl\\IMG_4902-large.webp"
+    }
+  },
+  "deluxe dbl/IMG_4902-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4902-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4902-medium.webp"
+    }
+  },
+  "deluxe dbl/IMG_4902-small": {
+    "webp": {
+      "small": "/optimized-images/deluxe dbl\\IMG_4902-small.webp"
+    }
+  },
+  "deluxe dbl/IMG_4902-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/deluxe dbl\\IMG_4902-thumbnail.webp"
+    }
+  },
+  "deluxe dbl/IMG_4902-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/deluxe dbl\\IMG_4902-xlarge.webp"
+    }
+  },
+  "deluxe dbl/IMG_4909-large": {
+    "webp": {
+      "large": "/optimized-images/deluxe dbl\\IMG_4909-large.webp"
+    }
+  },
+  "deluxe dbl/IMG_4909-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4909-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4909-medium.webp"
+    }
+  },
+  "deluxe dbl/IMG_4909-small": {
+    "webp": {
+      "small": "/optimized-images/deluxe dbl\\IMG_4909-small.webp"
+    }
+  },
+  "deluxe dbl/IMG_4909-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/deluxe dbl\\IMG_4909-thumbnail.webp"
+    }
+  },
+  "deluxe dbl/IMG_4909-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/deluxe dbl\\IMG_4909-xlarge.webp"
+    }
+  },
+  "deluxe dbl/IMG_4928-large": {
+    "webp": {
+      "large": "/optimized-images/deluxe dbl\\IMG_4928-large.webp"
+    }
+  },
+  "deluxe dbl/IMG_4928-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4928-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4928-medium.webp"
+    }
+  },
+  "deluxe dbl/IMG_4928-small": {
+    "webp": {
+      "small": "/optimized-images/deluxe dbl\\IMG_4928-small.webp"
+    }
+  },
+  "deluxe dbl/IMG_4928-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/deluxe dbl\\IMG_4928-thumbnail.webp"
+    }
+  },
+  "deluxe dbl/IMG_4928-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/deluxe dbl\\IMG_4928-xlarge.webp"
+    }
+  },
+  "deluxe dbl/IMG_4933-large": {
+    "webp": {
+      "large": "/optimized-images/deluxe dbl\\IMG_4933-large.webp"
+    }
+  },
+  "deluxe dbl/IMG_4933-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4933-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/deluxe dbl\\IMG_4933-medium.webp"
+    }
+  },
+  "deluxe dbl/IMG_4933-small": {
+    "webp": {
+      "small": "/optimized-images/deluxe dbl\\IMG_4933-small.webp"
+    }
+  },
+  "deluxe dbl/IMG_4933-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/deluxe dbl\\IMG_4933-thumbnail.webp"
+    }
+  },
+  "deluxe dbl/IMG_4933-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/deluxe dbl\\IMG_4933-xlarge.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_085408647-large": {
+    "webp": {
+      "large": "/optimized-images/restaurant img\\PXL_20240612_085408647-large.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_085408647-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_085408647-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_085408647-medium.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_085408647-small": {
+    "webp": {
+      "small": "/optimized-images/restaurant img\\PXL_20240612_085408647-small.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_085408647-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/restaurant img\\PXL_20240612_085408647-thumbnail.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_085408647-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/restaurant img\\PXL_20240612_085408647-xlarge.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_100331887-large": {
+    "webp": {
+      "large": "/optimized-images/restaurant img\\PXL_20240612_100331887-large.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_100331887-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_100331887-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_100331887-medium.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_100331887-small": {
+    "webp": {
+      "small": "/optimized-images/restaurant img\\PXL_20240612_100331887-small.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_100331887-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/restaurant img\\PXL_20240612_100331887-thumbnail.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_100331887-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/restaurant img\\PXL_20240612_100331887-xlarge.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101050903-large": {
+    "webp": {
+      "large": "/optimized-images/restaurant img\\PXL_20240612_101050903-large.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101050903-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_101050903-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_101050903-medium.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101050903-small": {
+    "webp": {
+      "small": "/optimized-images/restaurant img\\PXL_20240612_101050903-small.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101050903-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/restaurant img\\PXL_20240612_101050903-thumbnail.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101050903-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/restaurant img\\PXL_20240612_101050903-xlarge.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101418245-large": {
+    "webp": {
+      "large": "/optimized-images/restaurant img\\PXL_20240612_101418245-large.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101418245-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_101418245-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/restaurant img\\PXL_20240612_101418245-medium.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101418245-small": {
+    "webp": {
+      "small": "/optimized-images/restaurant img\\PXL_20240612_101418245-small.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101418245-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/restaurant img\\PXL_20240612_101418245-thumbnail.webp"
+    }
+  },
+  "restaurant img/PXL_20240612_101418245-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/restaurant img\\PXL_20240612_101418245-xlarge.webp"
+    }
+  },
+  "restaurant-main-large": {
+    "webp": {
+      "large": "/optimized-images/restaurant-main-large.webp"
+    }
+  },
+  "restaurant-main-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/restaurant-main-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/restaurant-main-medium.webp"
+    }
+  },
+  "restaurant-main-small": {
+    "webp": {
+      "small": "/optimized-images/restaurant-main-small.webp"
+    }
+  },
+  "restaurant-main-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/restaurant-main-thumbnail.webp"
+    }
+  },
+  "restaurant-main-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/restaurant-main-xlarge.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060805693~2-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe dbl\\PXL_20240612_060805693~2-large.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060805693~2-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_060805693~2-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_060805693~2-medium.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060805693~2-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe dbl\\PXL_20240612_060805693~2-small.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060805693~2-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe dbl\\PXL_20240612_060805693~2-thumbnail.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060805693~2-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe dbl\\PXL_20240612_060805693~2-xlarge.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060943431-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe dbl\\PXL_20240612_060943431-large.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060943431-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_060943431-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_060943431-medium.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060943431-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe dbl\\PXL_20240612_060943431-small.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060943431-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe dbl\\PXL_20240612_060943431-thumbnail.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_060943431-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe dbl\\PXL_20240612_060943431-xlarge.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061333642-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe dbl\\PXL_20240612_061333642-large.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061333642-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_061333642-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_061333642-medium.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061333642-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe dbl\\PXL_20240612_061333642-small.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061333642-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe dbl\\PXL_20240612_061333642-thumbnail.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061333642-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe dbl\\PXL_20240612_061333642-xlarge.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061633547-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe dbl\\PXL_20240612_061633547-large.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061633547-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_061633547-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_061633547-medium.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061633547-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe dbl\\PXL_20240612_061633547-small.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061633547-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe dbl\\PXL_20240612_061633547-thumbnail.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_061633547-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe dbl\\PXL_20240612_061633547-xlarge.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_071820883-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe dbl\\PXL_20240612_071820883-large.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_071820883-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_071820883-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe dbl\\PXL_20240612_071820883-medium.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_071820883-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe dbl\\PXL_20240612_071820883-small.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_071820883-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe dbl\\PXL_20240612_071820883-thumbnail.webp"
+    }
+  },
+  "super deluxe dbl/PXL_20240612_071820883-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe dbl\\PXL_20240612_071820883-xlarge.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055750265-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe fam\\PXL_20240612_055750265-large.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055750265-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_055750265-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_055750265-medium.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055750265-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe fam\\PXL_20240612_055750265-small.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055750265-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe fam\\PXL_20240612_055750265-thumbnail.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055750265-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe fam\\PXL_20240612_055750265-xlarge.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055914208-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe fam\\PXL_20240612_055914208-large.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055914208-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_055914208-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_055914208-medium.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055914208-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe fam\\PXL_20240612_055914208-small.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055914208-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe fam\\PXL_20240612_055914208-thumbnail.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_055914208-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe fam\\PXL_20240612_055914208-xlarge.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060109439-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe fam\\PXL_20240612_060109439-large.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060109439-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_060109439-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_060109439-medium.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060109439-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe fam\\PXL_20240612_060109439-small.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060109439-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe fam\\PXL_20240612_060109439-thumbnail.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060109439-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe fam\\PXL_20240612_060109439-xlarge.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060316585-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe fam\\PXL_20240612_060316585-large.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060316585-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_060316585-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_060316585-medium.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060316585-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe fam\\PXL_20240612_060316585-small.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060316585-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe fam\\PXL_20240612_060316585-thumbnail.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_060316585-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe fam\\PXL_20240612_060316585-xlarge.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_071630810-large": {
+    "webp": {
+      "large": "/optimized-images/super deluxe fam\\PXL_20240612_071630810-large.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_071630810-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_071630810-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/super deluxe fam\\PXL_20240612_071630810-medium.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_071630810-small": {
+    "webp": {
+      "small": "/optimized-images/super deluxe fam\\PXL_20240612_071630810-small.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_071630810-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/super deluxe fam\\PXL_20240612_071630810-thumbnail.webp"
+    }
+  },
+  "super deluxe fam/PXL_20240612_071630810-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/super deluxe fam\\PXL_20240612_071630810-xlarge.webp"
+    }
+  },
+  "superior dbl/IMG_4971-large": {
+    "webp": {
+      "large": "/optimized-images/superior dbl\\IMG_4971-large.webp"
+    }
+  },
+  "superior dbl/IMG_4971-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior dbl\\IMG_4971-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior dbl\\IMG_4971-medium.webp"
+    }
+  },
+  "superior dbl/IMG_4971-small": {
+    "webp": {
+      "small": "/optimized-images/superior dbl\\IMG_4971-small.webp"
+    }
+  },
+  "superior dbl/IMG_4971-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior dbl\\IMG_4971-thumbnail.webp"
+    }
+  },
+  "superior dbl/IMG_4971-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior dbl\\IMG_4971-xlarge.webp"
+    }
+  },
+  "superior dbl/IMG_4978-large": {
+    "webp": {
+      "large": "/optimized-images/superior dbl\\IMG_4978-large.webp"
+    }
+  },
+  "superior dbl/IMG_4978-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior dbl\\IMG_4978-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior dbl\\IMG_4978-medium.webp"
+    }
+  },
+  "superior dbl/IMG_4978-small": {
+    "webp": {
+      "small": "/optimized-images/superior dbl\\IMG_4978-small.webp"
+    }
+  },
+  "superior dbl/IMG_4978-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior dbl\\IMG_4978-thumbnail.webp"
+    }
+  },
+  "superior dbl/IMG_4978-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior dbl\\IMG_4978-xlarge.webp"
+    }
+  },
+  "superior dbl/IMG_5008-large": {
+    "webp": {
+      "large": "/optimized-images/superior dbl\\IMG_5008-large.webp"
+    }
+  },
+  "superior dbl/IMG_5008-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior dbl\\IMG_5008-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior dbl\\IMG_5008-medium.webp"
+    }
+  },
+  "superior dbl/IMG_5008-small": {
+    "webp": {
+      "small": "/optimized-images/superior dbl\\IMG_5008-small.webp"
+    }
+  },
+  "superior dbl/IMG_5008-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior dbl\\IMG_5008-thumbnail.webp"
+    }
+  },
+  "superior dbl/IMG_5008-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior dbl\\IMG_5008-xlarge.webp"
+    }
+  },
+  "superior dbl/IMG_5029-large": {
+    "webp": {
+      "large": "/optimized-images/superior dbl\\IMG_5029-large.webp"
+    }
+  },
+  "superior dbl/IMG_5029-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior dbl\\IMG_5029-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior dbl\\IMG_5029-medium.webp"
+    }
+  },
+  "superior dbl/IMG_5029-small": {
+    "webp": {
+      "small": "/optimized-images/superior dbl\\IMG_5029-small.webp"
+    }
+  },
+  "superior dbl/IMG_5029-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior dbl\\IMG_5029-thumbnail.webp"
+    }
+  },
+  "superior dbl/IMG_5029-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior dbl\\IMG_5029-xlarge.webp"
+    }
+  },
+  "superior dbl/IMG_5036-large": {
+    "webp": {
+      "large": "/optimized-images/superior dbl\\IMG_5036-large.webp"
+    }
+  },
+  "superior dbl/IMG_5036-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior dbl\\IMG_5036-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior dbl\\IMG_5036-medium.webp"
+    }
+  },
+  "superior dbl/IMG_5036-small": {
+    "webp": {
+      "small": "/optimized-images/superior dbl\\IMG_5036-small.webp"
+    }
+  },
+  "superior dbl/IMG_5036-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior dbl\\IMG_5036-thumbnail.webp"
+    }
+  },
+  "superior dbl/IMG_5036-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior dbl\\IMG_5036-xlarge.webp"
+    }
+  },
+  "superior dbl/IMG_5037-large": {
+    "webp": {
+      "large": "/optimized-images/superior dbl\\IMG_5037-large.webp"
+    }
+  },
+  "superior dbl/IMG_5037-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior dbl\\IMG_5037-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior dbl\\IMG_5037-medium.webp"
+    }
+  },
+  "superior dbl/IMG_5037-small": {
+    "webp": {
+      "small": "/optimized-images/superior dbl\\IMG_5037-small.webp"
+    }
+  },
+  "superior dbl/IMG_5037-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior dbl\\IMG_5037-thumbnail.webp"
+    }
+  },
+  "superior dbl/IMG_5037-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior dbl\\IMG_5037-xlarge.webp"
+    }
+  },
+  "superior fam/IMG_4971-large": {
+    "webp": {
+      "large": "/optimized-images/superior fam\\IMG_4971-large.webp"
+    }
+  },
+  "superior fam/IMG_4971-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior fam\\IMG_4971-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior fam\\IMG_4971-medium.webp"
+    }
+  },
+  "superior fam/IMG_4971-small": {
+    "webp": {
+      "small": "/optimized-images/superior fam\\IMG_4971-small.webp"
+    }
+  },
+  "superior fam/IMG_4971-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior fam\\IMG_4971-thumbnail.webp"
+    }
+  },
+  "superior fam/IMG_4971-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior fam\\IMG_4971-xlarge.webp"
+    }
+  },
+  "superior fam/IMG_4978-large": {
+    "webp": {
+      "large": "/optimized-images/superior fam\\IMG_4978-large.webp"
+    }
+  },
+  "superior fam/IMG_4978-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior fam\\IMG_4978-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior fam\\IMG_4978-medium.webp"
+    }
+  },
+  "superior fam/IMG_4978-small": {
+    "webp": {
+      "small": "/optimized-images/superior fam\\IMG_4978-small.webp"
+    }
+  },
+  "superior fam/IMG_4978-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior fam\\IMG_4978-thumbnail.webp"
+    }
+  },
+  "superior fam/IMG_4978-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior fam\\IMG_4978-xlarge.webp"
+    }
+  },
+  "superior fam/IMG_5008-large": {
+    "webp": {
+      "large": "/optimized-images/superior fam\\IMG_5008-large.webp"
+    }
+  },
+  "superior fam/IMG_5008-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior fam\\IMG_5008-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior fam\\IMG_5008-medium.webp"
+    }
+  },
+  "superior fam/IMG_5008-small": {
+    "webp": {
+      "small": "/optimized-images/superior fam\\IMG_5008-small.webp"
+    }
+  },
+  "superior fam/IMG_5008-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior fam\\IMG_5008-thumbnail.webp"
+    }
+  },
+  "superior fam/IMG_5008-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior fam\\IMG_5008-xlarge.webp"
+    }
+  },
+  "superior fam/IMG_5029-large": {
+    "webp": {
+      "large": "/optimized-images/superior fam\\IMG_5029-large.webp"
+    }
+  },
+  "superior fam/IMG_5029-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior fam\\IMG_5029-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior fam\\IMG_5029-medium.webp"
+    }
+  },
+  "superior fam/IMG_5029-small": {
+    "webp": {
+      "small": "/optimized-images/superior fam\\IMG_5029-small.webp"
+    }
+  },
+  "superior fam/IMG_5029-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior fam\\IMG_5029-thumbnail.webp"
+    }
+  },
+  "superior fam/IMG_5029-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior fam\\IMG_5029-xlarge.webp"
+    }
+  },
+  "superior fam/IMG_5036-large": {
+    "webp": {
+      "large": "/optimized-images/superior fam\\IMG_5036-large.webp"
+    }
+  },
+  "superior fam/IMG_5036-medium": {
+    "jpeg": {
+      "medium": "/optimized-images/superior fam\\IMG_5036-medium.jpeg"
+    },
+    "webp": {
+      "medium": "/optimized-images/superior fam\\IMG_5036-medium.webp"
+    }
+  },
+  "superior fam/IMG_5036-small": {
+    "webp": {
+      "small": "/optimized-images/superior fam\\IMG_5036-small.webp"
+    }
+  },
+  "superior fam/IMG_5036-thumbnail": {
+    "webp": {
+      "thumbnail": "/optimized-images/superior fam\\IMG_5036-thumbnail.webp"
+    }
+  },
+  "superior fam/IMG_5036-xlarge": {
+    "webp": {
+      "xlarge": "/optimized-images/superior fam\\IMG_5036-xlarge.webp"
+    }
+  }
+}

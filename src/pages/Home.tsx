@@ -9,6 +9,7 @@ import restaurantMain from "@/assets/restaurant-main.jpg";
 import superiorDbl1 from "@/assets/superior dbl/IMG_4971.JPG";
 // Super Deluxe Family Room images
 import superDeluxeFam1 from "@/assets/super deluxe fam/PXL_20240612_055750265.jpg";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
 const Home = () => {
   const features = [
@@ -123,10 +124,9 @@ const Home = () => {
             {roomTypes.map((room, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-2xl transition-all duration-300 group border-border bg-card">
                 <div className="relative h-48 sm:h-64 overflow-hidden">
-                  <img 
+                  <ResponsiveImage 
                     src={room.image} 
                     alt={room.name + ' photo'}
-                    loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-accent text-accent-foreground px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow">
@@ -183,10 +183,9 @@ const Home = () => {
               </Button>
             </div>
             <div className="relative">
-              <img 
+              <ResponsiveImage 
                 src={restaurantMain} 
                 alt="Restaurant dining area"
-                loading="lazy"
                 className="w-full h-64 sm:h-96 object-cover rounded-lg shadow-lg"
               />
             </div>

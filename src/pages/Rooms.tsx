@@ -15,40 +15,32 @@ import {
   Fan,
   Refrigerator
 } from "lucide-react";
-import deluxeRoom from "@/assets/deluxe-room.jpg";
-import suiteRoom from "@/assets/suite-room.jpg";
+
 import superiorFam5037 from "@/assets/superior fam/IMG_5037.JPG";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import RoomDetailView from "@/components/RoomDetailView";
+import OptimizedImage from "@/components/OptimizedImage";
+import ResponsiveImage from "@/components/ResponsiveImage";
 // Superior Double Room images
 import superiorDbl1 from "@/assets/superior dbl/IMG_4971.JPG";
 import superiorDbl2 from "@/assets/superior dbl/IMG_4978.JPG";
-import superiorDbl3 from "@/assets/superior dbl/IMG_4992.JPG";
-import superiorDbl4 from "@/assets/superior dbl/IMG_5008.JPG";
-import superiorDbl5 from "@/assets/superior dbl/IMG_5029.JPG";
-import superiorDbl6 from "@/assets/superior dbl/IMG_5036.JPG";
-import superiorDbl7 from "@/assets/superior dbl/IMG_5037.JPG";
-import superiorDbl8 from "@/assets/superior dbl/IMG_5044.JPG";
+import superiorDbl3 from "@/assets/superior dbl/IMG_5008.JPG";
+import superiorDbl4 from "@/assets/superior dbl/IMG_5029.JPG";
+import superiorDbl5 from "@/assets/superior dbl/IMG_5036.JPG";
+import superiorDbl6 from "@/assets/superior dbl/IMG_5037.JPG";
 // Superior Family Room images
 import superiorFam1 from "@/assets/superior fam/IMG_4971.JPG";
 import superiorFam2 from "@/assets/superior fam/IMG_4978.JPG";
-import superiorFam3 from "@/assets/superior fam/IMG_4992.JPG";
-import superiorFam4 from "@/assets/superior fam/IMG_5008.JPG";
-import superiorFam5 from "@/assets/superior fam/IMG_5029.JPG";
-import superiorFam6 from "@/assets/superior fam/IMG_5036.JPG";
-import superiorFam7 from "@/assets/superior fam/IMG_5037.JPG";
-import superiorFam8 from "@/assets/superior fam/IMG_5044.JPG";
+import superiorFam3 from "@/assets/superior fam/IMG_5008.JPG";
+import superiorFam4 from "@/assets/superior fam/IMG_5029.JPG";
+import superiorFam5 from "@/assets/superior fam/IMG_5036.JPG";
 // Deluxe Double Room images
 import deluxeDbl1 from "@/assets/deluxe dbl/IMG_4892.JPG";
 import deluxeDbl2 from "@/assets/deluxe dbl/IMG_4897.JPG";
 import deluxeDbl3 from "@/assets/deluxe dbl/IMG_4902.JPG";
 import deluxeDbl4 from "@/assets/deluxe dbl/IMG_4909.JPG";
-import deluxeDbl5 from "@/assets/deluxe dbl/IMG_4917.JPG";
-import deluxeDbl6 from "@/assets/deluxe dbl/IMG_4921.JPG";
-import deluxeDbl7 from "@/assets/deluxe dbl/IMG_4928.JPG";
-import deluxeDbl8 from "@/assets/deluxe dbl/IMG_4930(1).JPG";
-import deluxeDbl9 from "@/assets/deluxe dbl/IMG_4933.JPG";
-import deluxeDbl10 from "@/assets/deluxe dbl/IMG_4935.JPG";
+import deluxeDbl5 from "@/assets/deluxe dbl/IMG_4928.JPG";
+import deluxeDbl6 from "@/assets/deluxe dbl/IMG_4933.JPG";
 // Super Deluxe Double Room images
 import superDeluxeDbl1 from "@/assets/super deluxe dbl/PXL_20240612_060805693~2.jpg";
 import superDeluxeDbl2 from "@/assets/super deluxe dbl/PXL_20240612_060943431.jpg";
@@ -72,7 +64,7 @@ const Rooms = () => {
       id: 1,
       name: "Superior Double Room",
       price: 93,
-      images: [superiorDbl1, superiorDbl2, superiorDbl3, superiorDbl4, superiorDbl5, superiorDbl6, superiorDbl7, superiorDbl8],
+      images: [superiorDbl1, superiorDbl2, superiorDbl3, superiorDbl4, superiorDbl5, superiorDbl6],
       description: "The spacious double room features air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom boasting a bath. The unit has 1 king size bed.",
       maxGuests: 2,
       beds: "1 King Bed",
@@ -122,7 +114,7 @@ const Rooms = () => {
       id: 2,
       name: "Superior Family Room",
       price: 104,
-      images: [superiorFam1, superiorFam2, superiorFam3, superiorFam4, superiorFam5, superiorFam6, superiorFam7, superiorFam8],
+      images: [superiorFam1, superiorFam2, superiorFam3, superiorFam4, superiorFam5],
       description: "The spacious family room provides air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom featuring a bath. The unit offers 2 beds - 1 twin bed and 1 full bed.",
       maxGuests: 3,
       beds: "1 Twin Bed, 1 Full Bed",
@@ -172,7 +164,7 @@ const Rooms = () => {
       id: 3,
       name: "Deluxe Double Room",
       price: 69,
-      images: [deluxeDbl1, deluxeDbl2, deluxeDbl3, deluxeDbl4, deluxeDbl5, deluxeDbl6, deluxeDbl7, deluxeDbl8, deluxeDbl9, deluxeDbl10],
+      images: [deluxeDbl1, deluxeDbl2, deluxeDbl3, deluxeDbl4, deluxeDbl5, deluxeDbl6],
       description: "The spacious double room offers air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom boasting a bath. The unit has 1 queen bed.",
       maxGuests: 2,
       beds: "1 Queen Bed",
@@ -404,10 +396,11 @@ const Rooms = () => {
                       <CarouselContent>
                         {room.images.map((img, i) => (
                           <CarouselItem key={i} className="h-80 lg:h-96 flex items-center justify-center">
-                            <img 
+                            <ResponsiveImage 
                               src={img} 
                               alt={`${room.name} image ${i+1}`}
                               className="w-full h-full object-cover rounded-lg"
+                              priority={i === 0}
                             />
                           </CarouselItem>
                         ))}
@@ -425,7 +418,11 @@ const Rooms = () => {
                           tabIndex={0}
                           aria-label={`Show image ${i+1} of ${room.name}`}
                         >
-                          <img src={img} alt={`Thumbnail ${i+1}`} className="w-full h-full object-cover" />
+                          <OptimizedImage 
+                            src={img} 
+                            alt={`Thumbnail ${i+1}`} 
+                            className="w-full h-full object-cover" 
+                          />
                         </button>
                       ))}
                     </div>

@@ -19,6 +19,8 @@ import {
   ChevronRight
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import ResponsiveImage from "@/components/ResponsiveImage";
+import OptimizedImage from "@/components/OptimizedImage";
 
 interface RoomDetailViewProps {
   room: {
@@ -80,10 +82,11 @@ const RoomDetailView = ({ room, open, onOpenChange }: RoomDetailViewProps) => {
           <div className="space-y-4">
             {/* Main Image */}
             <div className="relative h-80 lg:h-96 rounded-lg overflow-hidden">
-              <img 
+              <ResponsiveImage 
                 src={room.images[selectedImageIndex]} 
                 alt={`${room.name} - Image ${selectedImageIndex + 1}`}
                 className="w-full h-full object-cover"
+                priority={true}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               
@@ -114,7 +117,7 @@ const RoomDetailView = ({ room, open, onOpenChange }: RoomDetailViewProps) => {
                       : 'border-transparent hover:border-accent/50'
                   }`}
                 >
-                  <img 
+                  <OptimizedImage 
                     src={image} 
                     alt={`Thumbnail ${index + 1}`}
                     className="w-full h-full object-cover"
