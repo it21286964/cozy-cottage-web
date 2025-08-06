@@ -63,7 +63,7 @@ const Rooms = () => {
     {
       id: 1,
       name: "Superior Double Room",
-      price: 93,
+      price: 68,
       images: [superiorDbl1, superiorDbl2, superiorDbl3, superiorDbl4, superiorDbl5, superiorDbl6],
       description: "The spacious double room features air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom boasting a bath. The unit has 1 king size bed.",
       maxGuests: 2,
@@ -113,7 +113,7 @@ const Rooms = () => {
     {
       id: 2,
       name: "Superior Family Room",
-      price: 104,
+      price: 85,
       images: [superiorFam1, superiorFam2, superiorFam3, superiorFam4, superiorFam5],
       description: "The spacious family room provides air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom featuring a bath. The unit offers 2 beds - 1 twin bed and 1 full bed.",
       maxGuests: 3,
@@ -163,7 +163,7 @@ const Rooms = () => {
     {
       id: 3,
       name: "Deluxe Double Room",
-      price: 69,
+      price: 52,
       images: [deluxeDbl1, deluxeDbl2, deluxeDbl3, deluxeDbl4, deluxeDbl5, deluxeDbl6],
       description: "The spacious double room offers air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom boasting a bath. The unit has 1 queen bed.",
       maxGuests: 2,
@@ -213,7 +213,7 @@ const Rooms = () => {
     {
       id: 4,
       name: "Super Deluxe Double Room",
-      price: 81,
+      price: 60,
       images: [superDeluxeDbl1, superDeluxeDbl2, superDeluxeDbl3, superDeluxeDbl4, superDeluxeDbl5],
       description: "The spacious double room offers air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom boasting a bath. The unit has 1 full bed.",
       maxGuests: 2,
@@ -263,7 +263,7 @@ const Rooms = () => {
     {
       id: 5,
       name: "Super Deluxe Family Room",
-      price: 116,
+      price: 85,
       images: [superDeluxeFam1, superDeluxeFam2, superDeluxeFam3, superDeluxeFam4, superDeluxeFam5],
       description: "The spacious triple room offers air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom featuring a bath. The unit offers 2 beds - 1 twin bed and 1 full bed.",
       maxGuests: 3,

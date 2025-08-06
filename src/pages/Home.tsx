@@ -22,14 +22,14 @@ const Home = () => {
   const roomTypes = [
     {
       name: "Superior Double Room",
-      price: "$93",
+      price: "$68",
       image: superiorDbl1,
       features: ["1 King Bed", "2 Guests", "Free WiFi", "Flat-screen TV", "Private Bathroom", "Mountain View", "Refrigerator", "No Smoking"],
       description: "The spacious double room features air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom boasting a bath. The unit has 1 king size bed.",
     },
     {
       name: "Super Deluxe Family Room",
-      price: "$116",
+      price: "$85",
       image: superDeluxeFam1,
       features: ["1 Twin Bed, 1 Full Bed", "3 Guests", "Free WiFi", "Flat-screen TV", "Private Bathroom", "Mountain View", "Refrigerator", "No Smoking"],
       description: "The spacious triple room offers air conditioning, a private entrance, a terrace with mountain views as well as a private bathroom featuring a bath. The unit offers 2 beds - 1 twin bed and 1 full bed.",
