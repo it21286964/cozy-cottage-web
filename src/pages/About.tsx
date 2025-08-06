@@ -9,7 +9,8 @@ import {
   Star,
   Building,
   Shield,
-  Leaf
+  Leaf,
+  Quote
 } from "lucide-react";
 
 const About = () => {
@@ -43,24 +44,38 @@ const About = () => {
     { icon: Shield, title: "Safety Certified", subtitle: "Global Safety Standards" },
   ];
 
-  const teamMembers = [
+  const guestReviews = [
     {
-      name: "Sarah Johnson",
-      position: "General Manager",
-      experience: "15+ years",
-      specialty: "Luxury hospitality operations"
+      rating: 5,
+      title: "Perfect location and amazing staff",
+      review: "Perfect location close to Ella and its amenities but also a welcome escape from the noise and activity. The staff were amazing and cannot do enough for you. Our room was large, the most spacious we have enjoyed in our three weeks in Sri Lanka. The room had a fantastic large balcony overlooking the town and is a welcome retreat during the day.",
+      author: "Travel Couple",
+      date: "February 2024",
+      tripType: "Couple's Getaway"
     },
     {
-      name: "Chef Marcus Rivera", 
-      position: "Executive Chef",
-      experience: "12+ years",
-      specialty: "International cuisine & fine dining"
+      rating: 5,
+      title: "Most wonderful and delightful place",
+      review: "We recently stayed at Ella Cozy Cottage and it was absolutely perfect. We loved every moment of our stay. The room was very spacious and the bathroom was also large. Both were impeccably clean and extremely comfortable, providing excellent value for the price. The environment and the view were superb, offering a calm and peaceful retreat.",
+      author: "Honeymoon Couple",
+      date: "May 2024",
+      tripType: "Honeymoon"
     },
     {
-      name: "Emily Chen",
-      position: "Guest Relations Director", 
-      experience: "10+ years",
-      specialty: "Customer experience & VIP services"
+      rating: 5,
+      title: "Stunning views and excellent hospitality",
+      review: "The place is simply fantastic, a 360 degree view of the surrounding mountains, very beautiful even at sunset and sunrise. The room was very spacious and equipped with every comfort with a huge balcony where you can completely relax surrounded by nature. Abundant and refined breakfast.",
+      author: "Adventure Travelers",
+      date: "August 2023",
+      tripType: "Friends Trip"
+    },
+    {
+      rating: 5,
+      title: "Amazing place for meditation and focus",
+      review: "I am a digital nomad based in Sri Lanka. I came to this amazing place with my family for two nights. Really after living next to beach this place really helped me to improve my focus with meditation. I highly recommend this place if you are visiting to Ella. Love the hospitality 😍😇",
+      author: "Digital Nomad Family",
+      date: "October 2022",
+      tripType: "Family Stay"
     }
   ];
 
@@ -142,6 +157,62 @@ const About = () => {
             <li>Horton Plains National Park (46 km) - Home to World's End cliff and Baker's Falls</li>
             <li>Easy airport access with our paid shuttle service to Mattala Rajapaksa International Airport (88 km)</li>
           </ul>
+        </section>
+
+        {/* Guest Reviews Section */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="heading-secondary text-foreground mb-4">What Our Guests Say</h2>
+            <p className="body-text text-muted-foreground max-w-2xl mx-auto">
+              Discover why travelers from around the world choose Cozy Cottage Ella for their unforgettable Sri Lankan adventure
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {guestReviews.map((review, index) => (
+              <Card key={index} className="p-6 border-muted">
+                <CardContent className="p-0">
+                  <div className="flex items-center mb-4">
+                    <div className="flex items-center gap-1 mr-4">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <Badge variant="secondary" className="text-xs">
+                      {review.tripType}
+                    </Badge>
+                  </div>
+                  
+                  <div className="mb-4">
+                    <Quote className="w-6 h-6 text-primary/20 mb-2" />
+                    <h3 className="font-semibold text-foreground mb-2">{review.title}</h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{review.review}</p>
+                  </div>
+                  
+                  <div className="flex justify-between items-center text-xs text-muted-foreground">
+                    <span className="font-medium">{review.author}</span>
+                    <span>{review.date}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex items-center gap-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <span className="font-semibold text-foreground">4.8/5</span>
+              <span className="text-muted-foreground">• Based on TripAdvisor reviews</span>
+            </div>
+            <Badge className="bg-green-100 text-green-800 border-green-200">
+              <Award className="w-4 h-4 mr-2" />
+              TripAdvisor Travelers' Choice Award Winner
+            </Badge>
+          </div>
         </section>
 
         {/* Your Perfect Mountain Getaway Awaits */}
