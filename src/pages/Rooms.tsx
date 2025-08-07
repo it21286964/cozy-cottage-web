@@ -13,7 +13,9 @@ import {
   Star,
   CheckCircle,
   Fan,
-  Refrigerator
+  Refrigerator,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 
 import superiorFam5037 from "@/assets/superior fam/IMG_5037.JPG";
@@ -320,42 +322,76 @@ const Rooms = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
 
   return (
-    <div className="min-h-screen py-12 px-4">
+    <div className="min-h-screen py-8 sm:py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
+        {/* Header - Mobile Optimized */}
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
             Our Accommodations
           </h1>
-          <p className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
             Choose from our carefully designed rooms and suites, each offering unique 
             experiences with luxury amenities and exceptional service.
           </p>
         </div>
 
-        {/* Featured Accommodations */}
+        {/* Featured Accommodations - Mobile Optimized */}
         <div className="mb-12 sm:mb-16">
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 sm:mb-8 text-center">Featured Accommodations</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 sm:mb-8 text-center">Featured Accommodations</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {featuredRooms.map((room) => (
-              <Card key={room.id} className="overflow-hidden shadow-lg border border-accent/30 bg-card">
-                <div className="flex flex-col md:flex-row h-full">
-                  <img src={room.images[0]} alt={room.name} className="w-full md:w-1/2 h-48 sm:h-64 object-cover" />
-                  <div className="p-3 sm:p-4 md:p-6 flex flex-col justify-between flex-1 min-h-[180px] sm:min-h-[200px]">
-                    <div className="flex-1">
-                      <CardTitle className="text-base sm:text-lg md:text-xl font-semibold mb-2">{room.name}</CardTitle>
-                      <p className="text-xs sm:text-sm text-muted-foreground mb-3 line-clamp-3">{room.description}</p>
+              <Card key={room.id} className="overflow-hidden shadow-lg border border-accent/30 bg-card hover:shadow-xl transition-all duration-300">
+                <div className="flex flex-col">
+                  {/* Mobile-optimized image */}
+                  <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
+                    <ResponsiveImage 
+                      src={room.images[0]} 
+                      alt={room.name} 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                    />
+                    <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-3 py-2 rounded-full text-sm font-semibold shadow-lg">
+                      ${room.price}/night
                     </div>
-                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 pt-3 border-t border-border">
-                      <span className="text-base sm:text-lg font-semibold text-accent">${room.price}/night</span>
-                      <div className="flex gap-2 w-full sm:w-auto">
-                        <Button variant="outline" size="sm" className="flex-1 sm:flex-none text-xs" onClick={() => setSelectedRoom(room)}>
-                          View
-                        </Button>
-                        <Button variant="luxury" size="sm" className="flex-1 sm:flex-none text-xs" onClick={() => navigate("/book")}>
-                          Book
-                        </Button>
-                      </div>
+                  </div>
+                  
+                  {/* Content section */}
+                  <div className="p-4 sm:p-6 flex flex-col flex-1">
+                    <CardTitle className="text-lg sm:text-xl font-semibold mb-3">{room.name}</CardTitle>
+                    <p className="text-sm sm:text-base text-muted-foreground mb-4 line-clamp-3 flex-1 leading-relaxed">
+                      {room.description}
+                    </p>
+                    
+                    {/* Quick amenities - mobile optimized */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs">
+                        {room.beds}
+                      </span>
+                      <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs">
+                        {room.maxGuests} Guests
+                      </span>
+                      <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs">
+                        Mountain View
+                      </span>
+                    </div>
+                    
+                    {/* Action buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="flex-1 min-h-[44px]" 
+                        onClick={() => setSelectedRoom(room)}
+                      >
+                        View Details
+                      </Button>
+                      <Button 
+                        variant="luxury" 
+                        size="sm" 
+                        className="flex-1 min-h-[44px]" 
+                        onClick={() => navigate("/book")}
+                      >
+                        Book Now
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -364,14 +400,12 @@ const Rooms = () => {
           </div>
         </div>
 
-        {/* Rooms Grid */}
-        <div className="space-y-12">
+        {/* All Rooms - Mobile Optimized */}
+        <div className="space-y-8 sm:space-y-12">
           {roomCategories.map((room, index) => {
-            // Add state for the current image index for each room
             const [selectedIndex, setSelectedIndex] = React.useState(0);
             const carouselApiRef = React.useRef(null);
 
-            // Handler for thumbnail click
             const handleThumbClick = (i) => {
               setSelectedIndex(i);
               if (carouselApiRef.current) {
@@ -379,7 +413,6 @@ const Rooms = () => {
               }
             };
 
-            // Handler to sync selectedIndex with carousel
             const handleSetApi = (api) => {
               carouselApiRef.current = api;
               api.on("select", () => {
@@ -389,33 +422,59 @@ const Rooms = () => {
 
             return (
               <Card key={room.id} className="overflow-hidden shadow-soft hover:shadow-luxury transition-all duration-500">
-                <div className={`grid grid-cols-1 lg:grid-cols-2 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
-                  {/* Main Image Section with Carousel */}
-                  <div className={`relative flex flex-col items-center h-auto lg:h-96 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                    <Carousel className="w-full h-80 lg:h-96" opts={{ loop: true, startIndex: selectedIndex }} setApi={handleSetApi}>
+                {/* Mobile-first layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  {/* Image Section - Always first on mobile */}
+                  <div className="relative flex flex-col items-center">
+                    {/* Main carousel */}
+                    <Carousel 
+                      className="w-full h-64 sm:h-80 lg:h-96" 
+                      opts={{ loop: true, startIndex: selectedIndex }} 
+                      setApi={handleSetApi}
+                    >
                       <CarouselContent>
                         {room.images.map((img, i) => (
-                          <CarouselItem key={i} className="h-80 lg:h-96 flex items-center justify-center">
+                          <CarouselItem key={i} className="h-64 sm:h-80 lg:h-96">
                             <ResponsiveImage 
                               src={img} 
                               alt={`${room.name} image ${i+1}`}
-                              className="w-full h-full object-cover rounded-lg"
+                              className="w-full h-full object-cover"
                               priority={i === 0}
                             />
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious />
-                      <CarouselNext />
+                      
+                      {/* Mobile-optimized carousel controls */}
+                      <div className="absolute left-2 top-1/2 -translate-y-1/2">
+                        <button 
+                          onClick={() => carouselApiRef.current?.scrollPrev()}
+                          className="bg-white/80 hover:bg-white text-black rounded-full p-2 shadow-lg touch-manipulation"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </button>
+                      </div>
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2">
+                        <button 
+                          onClick={() => carouselApiRef.current?.scrollNext()}
+                          className="bg-white/80 hover:bg-white text-black rounded-full p-2 shadow-lg touch-manipulation"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </button>
+                      </div>
                     </Carousel>
-                    {/* Thumbnails */}
-                    <div className="flex gap-2 mt-4 justify-center">
+                    
+                    {/* Mobile-optimized thumbnails */}
+                    <div className="flex gap-2 mt-3 px-4 overflow-x-auto w-full justify-center pb-2">
                       {room.images.map((img, i) => (
                         <button
                           key={i}
                           onClick={() => handleThumbClick(i)}
-                          className={`w-16 h-16 rounded overflow-hidden border-2 ${selectedIndex === i ? 'border-primary' : 'border-transparent'} focus:outline-none`}
-                          tabIndex={0}
+                          className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden border-2 ${
+                            selectedIndex === i ? 'border-primary' : 'border-transparent'
+                          } focus:outline-none touch-manipulation`}
                           aria-label={`Show image ${i+1} of ${room.name}`}
                         >
                           <OptimizedImage 
@@ -426,47 +485,76 @@ const Rooms = () => {
                         </button>
                       ))}
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent pointer-events-none"></div>
-                    <div className="absolute bottom-4 left-4 text-primary-foreground">
-                      <span className="text-3xl font-bold">${room.price}</span>
-                      <span className="text-lg opacity-90">/night</span>
+                    
+                    {/* Price overlay */}
+                    <div className="absolute top-4 right-4 bg-primary/90 text-primary-foreground rounded-lg px-3 py-2 shadow-lg">
+                      <span className="text-2xl sm:text-3xl font-bold">${room.price}</span>
+                      <span className="text-sm sm:text-base opacity-90">/night</span>
                     </div>
                   </div>
+                  
                   {/* Content Section */}
-                  <div className="p-8 lg:p-12 flex flex-col justify-center">
-                    <CardHeader className="p-0 mb-6">
-                      <CardTitle className="text-3xl font-bold text-foreground mb-2">
+                  <div className="p-4 sm:p-6 lg:p-8 xl:p-12 flex flex-col justify-center">
+                    <CardHeader className="p-0 mb-4 sm:mb-6">
+                      <CardTitle className="text-2xl sm:text-3xl font-bold text-foreground mb-2 sm:mb-3">
                         {room.name}
                       </CardTitle>
-                      <p className="text-muted-foreground text-lg">
+                      <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
                         {room.description}
                       </p>
                     </CardHeader>
+                    
                     <CardContent className="p-0">
                       {/* Room Info */}
-                      <div className="flex flex-wrap gap-4 mb-6 text-sm text-muted-foreground">
+                      <div className="flex flex-wrap gap-2 sm:gap-4 mb-4 sm:mb-6 text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
                           <Users className="w-4 h-4" />
                           Up to {room.maxGuests} guests
                         </span>
                         <span>•</span>
-                        <span>{room.size}</span>
+                        <span>{room.beds}</span>
                       </div>
-                      {/* Amenities Icons */}
-                      <div className="grid grid-cols-3 gap-4 mb-6">
-                        {room.amenities.map((amenity, i) => (
+                      
+                      {/* Mobile-optimized amenities grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                        {room.amenities.slice(0, 6).map((amenity, i) => (
                           <div key={i} className="flex items-center gap-2 text-sm">
-                            <amenity.icon className="w-4 h-4 text-accent" />
-                            <span className="text-muted-foreground">{amenity.label}</span>
+                            <amenity.icon className="w-4 h-4 text-accent flex-shrink-0" />
+                            <span className="text-muted-foreground truncate">{amenity.label}</span>
                           </div>
                         ))}
                       </div>
-                      {/* Action Buttons */}
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <Button variant="luxury" size="lg" className="flex-1" onClick={() => navigate("/book")}>
+                      
+                      {/* Show more amenities on mobile */}
+                      {room.amenities.length > 6 && (
+                        <div className="mb-6">
+                          <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            onClick={() => setSelectedRoom(room)}
+                            className="text-accent hover:text-accent/80 p-0 h-auto text-sm"
+                          >
+                            +{room.amenities.length - 6} more amenities
+                          </Button>
+                        </div>
+                      )}
+                      
+                      {/* Mobile-optimized action buttons */}
+                      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                        <Button 
+                          variant="luxury" 
+                          size="lg" 
+                          className="flex-1 min-h-[48px] text-base" 
+                          onClick={() => navigate("/book")}
+                        >
                           Book Now
                         </Button>
-                        <Button variant="outline" size="lg" className="flex-1" onClick={() => setSelectedRoom(room)}>
+                        <Button 
+                          variant="outline" 
+                          size="lg" 
+                          className="flex-1 min-h-[48px] text-base" 
+                          onClick={() => setSelectedRoom(room)}
+                        >
                           View Details
                         </Button>
                       </div>
@@ -478,8 +566,28 @@ const Rooms = () => {
           })}
         </div>
 
-        {/* Special Offers */}
+        {/* Mobile-optimized bottom CTA */}
+        <div className="mt-12 sm:mt-16 text-center">
+          <div className="bg-gradient-hero rounded-2xl p-6 sm:p-8 text-primary-foreground">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+              Ready to Book Your Perfect Stay?
+            </h3>
+            <p className="text-base sm:text-lg opacity-90 mb-6 max-w-2xl mx-auto leading-relaxed">
+              Experience the comfort and luxury of Cozy Cottage Ella. All rooms feature mountain views, modern amenities, and authentic Sri Lankan hospitality.
+            </p>
+            <Button 
+              variant="gold" 
+              size="lg" 
+              className="w-full sm:w-auto min-h-[48px] px-8 text-base sm:text-lg"
+              onClick={() => navigate("/book")}
+            >
+              Book Your Room Now
+            </Button>
+          </div>
+        </div>
       </div>
+      
+      {/* Room Detail Modal */}
       {selectedRoom && (
         <RoomDetailView 
           room={selectedRoom} 
