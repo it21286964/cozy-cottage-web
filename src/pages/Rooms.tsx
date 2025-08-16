@@ -21,8 +21,6 @@ import {
 import superiorFam5037 from "@/assets/superior fam/IMG_5037.JPG";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import RoomDetailView from "@/components/RoomDetailView";
-import OptimizedImage from "@/components/OptimizedImage";
-import ResponsiveImage from "@/components/ResponsiveImage";
 // Superior Double Room images
 import superiorDbl1 from "@/assets/superior dbl/IMG_4971.JPG";
 import superiorDbl2 from "@/assets/superior dbl/IMG_4978.JPG";
@@ -56,8 +54,176 @@ import superDeluxeFam3 from "@/assets/super deluxe fam/PXL_20240612_060109439.jp
 import superDeluxeFam4 from "@/assets/super deluxe fam/PXL_20240612_060316585.jpg";
 import superDeluxeFam5 from "@/assets/super deluxe fam/PXL_20240612_071630810.jpg";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
+// Enhanced Image component with better loading states
+const OptimizedImage = ({ src, alt, className, priority = false, thumbnail = false, ...props }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
+  const [hasError, setHasError] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    if (priority) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { 
+        threshold: 0.1, 
+        rootMargin: thumbnail ? '100px' : '50px' // Load thumbnails earlier
+      }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [priority, thumbnail]);
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+    setHasError(false);
+  };
+
+  const handleError = () => {
+    setHasError(true);
+    setIsLoaded(false);
+  };
+
+  return (
+    <div ref={imgRef} className={`relative overflow-hidden ${className}`} {...props}>
+      {/* Loading skeleton */}
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-gradient-to-r from-muted/30 via-muted/50 to-muted/30 animate-pulse">
+          <div className="w-full h-full bg-muted/40 flex items-center justify-center">
+            {!thumbnail && (
+              <div className="text-muted-foreground/60 text-sm">Loading...</div>
+            )}
+          </div>
+        </div>
+      )}
+      
+      {/* Error state */}
+      {hasError && (
+        <div className="absolute inset-0 bg-muted/50 flex items-center justify-center">
+          <div className="text-muted-foreground text-sm">Unable to load image</div>
+        </div>
+      )}
+      
+      {/* Actual image */}
+      {isInView && (
+        <img
+          src={src}
+          alt={alt}
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={handleLoad}
+          onError={handleError}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+        />
+      )}
+    </div>
+  );
+};
+
+// Enhanced Carousel component with better thumbnail handling
+const RoomCarousel = ({ room, selectedIndex, setSelectedIndex }) => {
+  const carouselApiRef = useRef(null);
+
+  const handleThumbClick = (i) => {
+    setSelectedIndex(i);
+    if (carouselApiRef.current) {
+      carouselApiRef.current.scrollTo(i);
+    }
+  };
+
+  const handleSetApi = (api) => {
+    if (!api) return;
+    carouselApiRef.current = api;
+    api.on("select", () => {
+      setSelectedIndex(api.selectedScrollSnap());
+    });
+  };
+
+  return (
+    <div className="relative flex flex-col items-center">
+      {/* Main carousel */}
+      <Carousel 
+        className="w-full h-64 sm:h-80 lg:h-96" 
+        opts={{ loop: true, startIndex: selectedIndex }} 
+        setApi={handleSetApi}
+      >
+        <CarouselContent>
+          {room.images.map((img, i) => (
+            <CarouselItem key={i} className="h-64 sm:h-80 lg:h-96">
+              <OptimizedImage 
+                src={img} 
+                alt={`${room.name} image ${i+1}`}
+                className="w-full h-full"
+                priority={i === 0} // Prioritize first image
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        
+        {/* Carousel controls */}
+        <div className="absolute left-2 top-1/2 -translate-y-1/2">
+          <button 
+            onClick={() => carouselApiRef.current?.scrollPrev()}
+            className="bg-white/80 hover:bg-white text-black rounded-full p-2 shadow-lg touch-manipulation transition-all duration-200 hover:scale-110"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+          </button>
+        </div>
+        <div className="absolute right-2 top-1/2 -translate-y-1/2">
+          <button 
+            onClick={() => carouselApiRef.current?.scrollNext()}
+            className="bg-white/80 hover:bg-white text-black rounded-full p-2 shadow-lg touch-manipulation transition-all duration-200 hover:scale-110"
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+          </button>
+        </div>
+      </Carousel>
+      
+      {/* Fixed thumbnail gallery */}
+      <div className="flex gap-2 mt-3 px-4 w-full justify-center">
+        <div className="flex gap-2 overflow-x-auto max-w-full pb-2">
+          {room.images.map((img, i) => (
+            <button
+              key={i}
+              onClick={() => handleThumbClick(i)}
+              className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden border-2 transition-all duration-300 ${
+                selectedIndex === i 
+                  ? 'border-primary shadow-lg scale-105' 
+                  : 'border-transparent hover:border-primary/50'
+              } focus:outline-none focus:ring-2 focus:ring-primary/50 touch-manipulation`}
+              aria-label={`Show image ${i+1} of ${room.name}`}
+            >
+              <OptimizedImage 
+                src={img} 
+                alt={`Thumbnail ${i+1}`} 
+                className="w-full h-full"
+                thumbnail={true}
+                priority={i <= 2} // Preload first 3 thumbnails
+              />
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Rooms = () => {
   const navigate = useNavigate();
@@ -320,11 +486,19 @@ const Rooms = () => {
   ].filter(Boolean);
 
   const [selectedRoom, setSelectedRoom] = useState(null);
+  const [carouselStates, setCarouselStates] = useState({});
+
+  const updateCarouselState = (roomId, index) => {
+    setCarouselStates(prev => ({
+      ...prev,
+      [roomId]: index
+    }));
+  };
 
   return (
     <div className="min-h-screen py-8 sm:py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header - Mobile Optimized */}
+        {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
             Our Accommodations
@@ -335,33 +509,31 @@ const Rooms = () => {
           </p>
         </div>
 
-        {/* Featured Accommodations - Mobile Optimized */}
+        {/* Featured Accommodations with Optimized Images */}
         <div className="mb-12 sm:mb-16">
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-6 sm:mb-8 text-center">Featured Accommodations</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {featuredRooms.map((room) => (
               <Card key={room.id} className="overflow-hidden shadow-lg border border-accent/30 bg-card hover:shadow-xl transition-all duration-300">
                 <div className="flex flex-col">
-                  {/* Mobile-optimized image */}
-                  <div className="relative h-48 sm:h-56 lg:h-64 overflow-hidden">
-                    <ResponsiveImage 
+                  <div className="relative h-48 sm:h-56 lg:h-64">
+                    <OptimizedImage 
                       src={room.images[0]} 
                       alt={room.name} 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+                      className="w-full h-full group-hover:scale-105 transition-transform duration-500"
+                      priority={true} // Featured rooms get priority loading
                     />
                     <div className="absolute top-3 right-3 bg-accent text-accent-foreground px-3 py-2 rounded-full text-sm font-semibold shadow-lg">
                       ${room.price}/night
                     </div>
                   </div>
                   
-                  {/* Content section */}
                   <div className="p-4 sm:p-6 flex flex-col flex-1">
                     <CardTitle className="text-lg sm:text-xl font-semibold mb-3">{room.name}</CardTitle>
                     <p className="text-sm sm:text-base text-muted-foreground mb-4 line-clamp-3 flex-1 leading-relaxed">
                       {room.description}
                     </p>
                     
-                    {/* Quick amenities - mobile optimized */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       <span className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs">
                         {room.beds}
@@ -374,7 +546,6 @@ const Rooms = () => {
                       </span>
                     </div>
                     
-                    {/* Action buttons */}
                     <div className="flex flex-col sm:flex-row gap-3">
                       <Button 
                         variant="outline" 
@@ -400,94 +571,24 @@ const Rooms = () => {
           </div>
         </div>
 
-        {/* All Rooms - Mobile Optimized */}
+        {/* All Rooms with Enhanced Carousels */}
         <div className="space-y-8 sm:space-y-12">
           {roomCategories.map((room, index) => {
-            const [selectedIndex, setSelectedIndex] = React.useState(0);
-            const carouselApiRef = React.useRef(null);
-
-            const handleThumbClick = (i) => {
-              setSelectedIndex(i);
-              if (carouselApiRef.current) {
-                carouselApiRef.current.scrollTo(i);
-              }
-            };
-
-            const handleSetApi = (api) => {
-              carouselApiRef.current = api;
-              api.on("select", () => {
-                setSelectedIndex(api.selectedScrollSnap());
-              });
-            };
-
+            const selectedIndex = carouselStates[room.id] || 0;
+            
             return (
               <Card key={room.id} className="overflow-hidden shadow-soft hover:shadow-luxury transition-all duration-500">
-                {/* Mobile-first layout */}
                 <div className="grid grid-cols-1 lg:grid-cols-2">
-                  {/* Image Section - Always first on mobile */}
-                  <div className="relative flex flex-col items-center">
-                    {/* Main carousel */}
-                    <Carousel 
-                      className="w-full h-64 sm:h-80 lg:h-96" 
-                      opts={{ loop: true, startIndex: selectedIndex }} 
-                      setApi={handleSetApi}
-                    >
-                      <CarouselContent>
-                        {room.images.map((img, i) => (
-                          <CarouselItem key={i} className="h-64 sm:h-80 lg:h-96">
-                            <ResponsiveImage 
-                              src={img} 
-                              alt={`${room.name} image ${i+1}`}
-                              className="w-full h-full object-cover"
-                              priority={i === 0}
-                            />
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
-                      
-                      {/* Mobile-optimized carousel controls */}
-                      <div className="absolute left-2 top-1/2 -translate-y-1/2">
-                        <button 
-                          onClick={() => carouselApiRef.current?.scrollPrev()}
-                          className="bg-white/80 hover:bg-white text-black rounded-full p-2 shadow-lg touch-manipulation"
-                          aria-label="Previous image"
-                        >
-                          <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </button>
-                      </div>
-                      <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                        <button 
-                          onClick={() => carouselApiRef.current?.scrollNext()}
-                          className="bg-white/80 hover:bg-white text-black rounded-full p-2 shadow-lg touch-manipulation"
-                          aria-label="Next image"
-                        >
-                          <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                        </button>
-                      </div>
-                    </Carousel>
-                    
-                    {/* Mobile-optimized thumbnails */}
-                    <div className="flex gap-2 mt-3 px-4 overflow-x-auto w-full justify-center pb-2">
-                      {room.images.map((img, i) => (
-                        <button
-                          key={i}
-                          onClick={() => handleThumbClick(i)}
-                          className={`flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden border-2 ${
-                            selectedIndex === i ? 'border-primary' : 'border-transparent'
-                          } focus:outline-none touch-manipulation`}
-                          aria-label={`Show image ${i+1} of ${room.name}`}
-                        >
-                          <OptimizedImage 
-                            src={img} 
-                            alt={`Thumbnail ${i+1}`} 
-                            className="w-full h-full object-cover" 
-                          />
-                        </button>
-                      ))}
-                    </div>
+                  {/* Enhanced Image Section */}
+                  <div className="relative">
+                    <RoomCarousel 
+                      room={room}
+                      selectedIndex={selectedIndex}
+                      setSelectedIndex={(index) => updateCarouselState(room.id, index)}
+                    />
                     
                     {/* Price overlay */}
-                    <div className="absolute top-4 right-4 bg-primary/90 text-primary-foreground rounded-lg px-3 py-2 shadow-lg">
+                    <div className="absolute top-4 right-4 bg-primary/90 text-primary-foreground rounded-lg px-3 py-2 shadow-lg z-10">
                       <span className="text-2xl sm:text-3xl font-bold">${room.price}</span>
                       <span className="text-sm sm:text-base opacity-90">/night</span>
                     </div>
@@ -515,7 +616,7 @@ const Rooms = () => {
                         <span>{room.beds}</span>
                       </div>
                       
-                      {/* Mobile-optimized amenities grid */}
+                      {/* Amenities grid */}
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
                         {room.amenities.slice(0, 6).map((amenity, i) => (
                           <div key={i} className="flex items-center gap-2 text-sm">
@@ -525,7 +626,7 @@ const Rooms = () => {
                         ))}
                       </div>
                       
-                      {/* Show more amenities on mobile */}
+                      {/* Show more amenities */}
                       {room.amenities.length > 6 && (
                         <div className="mb-6">
                           <Button 
@@ -539,7 +640,7 @@ const Rooms = () => {
                         </div>
                       )}
                       
-                      {/* Mobile-optimized action buttons */}
+                      {/* Action buttons */}
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <Button 
                           variant="luxury" 
@@ -566,7 +667,7 @@ const Rooms = () => {
           })}
         </div>
 
-        {/* Mobile-optimized bottom CTA */}
+        {/* Bottom CTA */}
         <div className="mt-12 sm:mt-16 text-center">
           <div className="bg-gradient-hero rounded-2xl p-6 sm:p-8 text-primary-foreground">
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">

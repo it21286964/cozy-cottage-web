@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Star, Wifi, Car, Coffee, Utensils, Bed, MapPin, Users } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import heroImage from "@/assets/cover-home.jpg";
 import restaurantDining from "@/assets/restaurant-dining.jpg";
 import restaurantMain from "@/assets/restaurant-main.jpg";
@@ -9,7 +10,92 @@ import restaurantMain from "@/assets/restaurant-main.jpg";
 import superiorDbl1 from "@/assets/superior dbl/IMG_4971.JPG";
 // Super Deluxe Family Room images
 import superDeluxeFam1 from "@/assets/super deluxe fam/PXL_20240612_055750265.jpg";
-import ResponsiveImage from "@/components/ResponsiveImage";
+
+// Optimized Image component with lazy loading
+const LazyImage = ({ src, alt, className, priority = false, ...props }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(priority);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    if (priority) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [priority]);
+
+  return (
+    <div ref={imgRef} className={`relative overflow-hidden ${className}`} {...props}>
+      {/* Placeholder with skeleton loading */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-r from-muted/20 via-muted/40 to-muted/20 animate-pulse">
+          <div className="w-full h-full bg-muted/30"></div>
+        </div>
+      )}
+      
+      {/* Actual image - only load when in view */}
+      {isInView && (
+        <img
+          src={src}
+          alt={alt}
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setIsLoaded(true)}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+        />
+      )}
+    </div>
+  );
+};
+
+// Background Image component for hero section
+const HeroBackground = ({ src, children }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setIsLoaded(true);
+    img.src = src;
+  }, [src]);
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6">
+      {/* Background with loading state */}
+      <div className={`absolute inset-0 transition-opacity duration-1000 ${
+        isLoaded ? 'opacity-100' : 'opacity-0'
+      }`}>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${src})` }}
+        >
+          <div className="absolute inset-0 bg-primary/60"></div>
+        </div>
+      </div>
+      
+      {/* Fallback background */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-primary/60"></div>
+      )}
+      
+      {children}
+    </section>
+  );
+};
 
 const Home = () => {
   const features = [
@@ -38,17 +124,9 @@ const Home = () => {
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section - Mobile Optimized */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
-          <div className="absolute inset-0 bg-primary/60"></div>
-        </div>
-        
+      {/* Optimized Hero Section */}
+      <HeroBackground src={heroImage}>
         <div className="relative z-10 text-center text-primary-foreground max-w-4xl mx-auto w-full">
-          {/* Mobile-first heading sizing */}
           <h1 className="mb-6 animate-fade-in">
             <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl font-light tracking-wider mb-2 text-white drop-shadow-lg" style={{ 
               letterSpacing: '0.15em', 
@@ -70,7 +148,6 @@ const Home = () => {
           <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 opacity-90 animate-slide-in body-text-light text-white px-4 leading-relaxed">
             Experience unparalleled comfort and elegance in the heart of Ella city
           </p>
-          {/* Mobile-optimized buttons */}
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-4 justify-center animate-scale-in px-4">
             <Button 
               variant="gold" 
@@ -92,9 +169,9 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </HeroBackground>
 
-      {/* Features Section - Mobile Optimized */}
+      {/* Features Section */}
       <section className="py-12 sm:py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
@@ -106,7 +183,6 @@ const Home = () => {
             </p>
           </div>
           
-          {/* Mobile-first grid - 2 columns on mobile, 4 on desktop */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {features.map((feature, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 group bg-card border-border touch-manipulation">
@@ -123,7 +199,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Rooms - Mobile Optimized */}
+      {/* Featured Rooms with Lazy Loading */}
       <section className="py-12 sm:py-16 px-4 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
@@ -135,15 +211,14 @@ const Home = () => {
             </p>
           </div>
           
-          {/* Mobile-optimized room cards */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {roomTypes.map((room, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-2xl transition-all duration-300 group border-border bg-card">
-                <div className="relative h-56 sm:h-64 lg:h-72 overflow-hidden">
-                  <ResponsiveImage 
+                <div className="relative h-56 sm:h-64 lg:h-72">
+                  <LazyImage 
                     src={room.image} 
                     alt={room.name + ' photo'}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-accent text-accent-foreground px-3 py-2 rounded-full text-sm sm:text-base font-semibold shadow-lg">
                     {room.price}/night
@@ -153,7 +228,6 @@ const Home = () => {
                   <h3 className="text-xl sm:text-2xl font-bold mb-3 text-foreground">{room.name}</h3>
                   <p className="text-sm sm:text-base text-muted-foreground mb-4 line-clamp-3 leading-relaxed">{room.description}</p>
                   
-                  {/* Mobile-optimized feature tags */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {room.features.slice(0, 6).map((feature, i) => (
                       <span key={i} className="bg-secondary text-secondary-foreground px-2 py-1 rounded-full text-xs sm:text-sm">
@@ -182,7 +256,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Restaurant Preview - Mobile Optimized */}
+      {/* Restaurant Preview with Lazy Loading */}
       <section className="py-12 sm:py-16 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -194,7 +268,6 @@ const Home = () => {
                 Experience authentic Sri Lankan dining at its finest, where well-experienced local chefs bring generations of culinary tradition to every dish. Our open dining area creates a warm, welcoming atmosphere perfect for sharing meals with family and friends.
               </p>
               
-              {/* Mobile-optimized feature list */}
               <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 <div className="flex items-center gap-3">
                   <Star className="w-5 h-5 sm:w-6 sm:h-6 text-accent flex-shrink-0" />
@@ -222,17 +295,17 @@ const Home = () => {
             </div>
             
             <div className="relative order-1 lg:order-2">
-              <ResponsiveImage 
+              <LazyImage 
                 src={restaurantMain} 
                 alt="Restaurant dining area"
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
+                className="w-full h-64 sm:h-80 lg:h-96 rounded-lg shadow-lg"
               />
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Mobile Optimized */}
+      {/* CTA Section */}
       <section className="py-12 sm:py-16 px-4 bg-gradient-hero">
         <div className="max-w-4xl mx-auto text-center text-primary-foreground">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">

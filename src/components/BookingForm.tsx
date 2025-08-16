@@ -279,18 +279,21 @@ export default function BookingForm({ open, onOpenChange, standalone }: BookingF
             Stay Details
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Date Selection - Stacked on mobile, side by side on larger screens */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <FormField name="checkIn" control={form.control} render={({ field }) => (
               <FormItem>
                 <FormLabel>Check-in Date *</FormLabel>
                 <FormControl>
-                  <Calendar
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    mode="single"
-                    className="w-full"
-                    disabled={(date) => isBefore(date, startOfDay(new Date()))}
-                  />
+                  <div className="flex justify-center">
+                    <Calendar
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      mode="single"
+                      className="w-full max-w-sm border rounded-md"
+                      disabled={(date) => isBefore(date, startOfDay(new Date()))}
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -300,18 +303,23 @@ export default function BookingForm({ open, onOpenChange, standalone }: BookingF
               <FormItem>
                 <FormLabel>Check-out Date *</FormLabel>
                 <FormControl>
-                  <Calendar
-                    selected={field.value}
-                    onSelect={field.onChange}
-                    mode="single"
-                    className="w-full"
-                    disabled={(date) => checkIn ? isBefore(date, addDays(checkIn, 1)) : isBefore(date, startOfDay(new Date()))}
-                  />
+                  <div className="flex justify-center">
+                    <Calendar
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      mode="single"
+                      className="w-full max-w-sm border rounded-md"
+                      disabled={(date) => checkIn ? isBefore(date, addDays(checkIn, 1)) : isBefore(date, startOfDay(new Date()))}
+                    />
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )} />
-            
+          </div>
+
+          {/* Guests and Stay Summary */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
             <FormField name="guests" control={form.control} render={({ field }) => (
               <FormItem>
                 <FormLabel>Number of Guests *</FormLabel>
@@ -325,13 +333,20 @@ export default function BookingForm({ open, onOpenChange, standalone }: BookingF
                   />
                 </FormControl>
                 <FormMessage />
-                {checkIn && checkOut && (
-                  <FormDescription>
-                    {differenceInDays(checkOut, checkIn)} nights
-                  </FormDescription>
-                )}
               </FormItem>
             )} />
+
+            {/* Stay Summary */}
+            {checkIn && checkOut && (
+              <div className="p-3 bg-muted/50 rounded-lg">
+                <h4 className="font-medium mb-2">Stay Summary</h4>
+                <div className="text-sm space-y-1">
+                  <div>Check-in: {format(checkIn, "MMM dd, yyyy")}</div>
+                  <div>Check-out: {format(checkOut, "MMM dd, yyyy")}</div>
+                  <div className="font-medium">Duration: {differenceInDays(checkOut, checkIn)} nights</div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
@@ -534,4 +549,4 @@ export default function BookingForm({ open, onOpenChange, standalone }: BookingF
       </DialogContent>
     </Dialog>
   );
-} 
+}
